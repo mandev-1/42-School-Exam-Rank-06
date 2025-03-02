@@ -4,37 +4,29 @@ mini_serv.c
 
 # Allowed Functions
 
-<unistd.h>
-```
+```cpp
+#include <unistd.h>
 write, close and select
-```
 
-<sys/socket.h>
-```
+#include <sys/socket.h>
 socket, accept, listen, send, recv and bind
-```
 
-<string.h>
-```
+#include <string.h>
 strstr, strlen, strcpy, strcat, memset and bzero
-```
 
-<stdlib.h>
-```
+#include <stdlib.h>
 malloc, realloc, free, calloc, atoi and exit
-```
 
-<stdio.h>
-```
-- sprintf
+#include <stdio.h>
+sprintf
 ```
 
 
 # Subject Text
 
-Write a program that will listen for client to connect on a certain port on 127.0.0.1 and will let clients to speak with each other. This program will take as first argument the port to bind to.
+*Write a program that will listen for client to connect on a certain port on 127.0.0.1 and will let clients to speak with each other. This program will take as first argument the port to bind to.*
 
-  - If no argument is given, it should write in stderr "Wrong number of arguments" followed by a \n and exit with status 1
+  - If no argument is given, it should write in stderr `"Wrong number of arguments"` followed by a \n and exit with status 1
   - If a System Calls returns an error before the program start accepting connection, it should write in stderr "Fatal error" followed by a \n and exit with status 1
   - If you cant allocate memory it should write in stderr "Fatal error" followed by a \n and exit with status 1
 
