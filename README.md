@@ -1,6 +1,6 @@
 # MINI SERVER IN C -- the LAST CORE EXAM in 42 PRAGUE
 
-Here's the code with added comments explaining the purpose of each section:
+Here's the code with added comments explaining the purpose of each section: [Skip to function def.](#Must_know_by_heart)
 
 ```c
 #include <stdio.h>
@@ -137,6 +137,9 @@ int     main(int ac, char **av)
 ```
 
 > These comments provide a high-level overview of the purpose of each section in the code, making it easier to understand the structure and functionality of the server program.
+>
+
+###### Must know by heart:
 
 **Learn about the code you use:**
 - [fd_set](documentation/fd_set.md)
