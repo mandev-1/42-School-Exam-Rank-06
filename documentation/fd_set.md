@@ -1,18 +1,18 @@
 ### FD_SET
 
-[<--- back to readme](README.md)
+[<--- back to readme](../README.md)
 
-The `fd_set` is a data structure used in C for managing sets of file descriptors, primarily used with the `select()` function for I/O multiplexing. It's typically defined in the `<sys/select.h>` header, which is often included by `<sys/types.h>`.
+The `fd_set` is a data structure used in C for managing sets of file descriptors, primarily used with the `select()` function for I/O multiplexing. It's typically defined in the `<sys/select.h>` header, which is often included by `<sys/types.h>`. 
 
-Here's what you need to know about `fd_set`:
+* Here's what you need to know about `fd_set`: *
 
-1. Purpose: It's used to keep track of multiple file descriptors (like sockets) that you want to monitor for read, write, or exception conditions.
+1. 🧠 Purpose: It's used to keep track of multiple file descriptors (like sockets) that you want to monitor for read, write, or exception conditions.
 
-2. Structure: Internally, it's usually implemented as a bit array, where each bit represents a file descriptor.
+2. 🏠 Structure: Internally, it's usually implemented as a bit array, where each bit represents a file descriptor.
 
-3. Usage: You typically create separate `fd_set`s for read, write, and exception conditions.
+3. 🔦 Usage: You typically create separate `fd_set`s for read, write, and exception conditions.
 
-4. Manipulation: You don't directly manipulate the `fd_set`. Instead, you use macros to add or remove file descriptors from the set:
+4. ⚙️ Manipulation: You don't directly manipulate the `fd_set`. Instead, you use macros to add or remove file descriptors from the set:
 
    - `FD_ZERO(&set)`: Clears all file descriptors from the set.
    - `FD_SET(fd, &set)`: Adds a file descriptor to the set.
