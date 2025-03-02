@@ -148,12 +148,14 @@ int     main(int ac, char **av)
 - [create sockets](documentation/bind_listen_socket.md)
 - [bind and listen to sockets](documentation/socket_creation.md)
 
+- [create server loop](documentation/implement_server.md)
+
 ---------
 
 
 # Expected File
 
-mini_serv.c
+[mini_serv.c](mini_serv.c)
 
 # Allowed Functions
 
