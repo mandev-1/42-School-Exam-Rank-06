@@ -10,6 +10,12 @@ This is socket programming code in C that sets up a TCP server. The sockaddr_in 
    - If the socket creation fails, it returns -1 and triggers an error function
   
 **1. Purpose:**   The `struct sockaddr_in` is a structure used in network programming, specifically for IPv4 Internet Protocol (IP) socket address representation. It's commonly used when working with socket programming in C/C++, especially for TCP/IP networking.
+The struct in_addr is used in socket programming to represent an IPv4 address.
+```c
+struct in_addr {
+    uint32_t s_addr;  // 32-bit IPv4 address
+};
+```
 
 **2. Structure Definition:**   The structure typically looks like this:
 
