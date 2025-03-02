@@ -4,7 +4,7 @@
 
 The `fd_set` is a data structure used in C for managing sets of file descriptors, primarily used with the `select()` function for I/O multiplexing. It's typically defined in the `<sys/select.h>` header, which is often included by `<sys/types.h>`. 
 
-* Here's what you need to know about `fd_set`: *
+*Here's what you need to know about `fd_set`:*
 
 1. 🧠 Purpose: It's used to keep track of multiple file descriptors (like sockets) that you want to monitor for read, write, or exception conditions.
 
