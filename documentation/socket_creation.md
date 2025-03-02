@@ -9,8 +9,10 @@ This is socket programming code in C that sets up a TCP server. The sockaddr_in 
    - Creates a socket file descriptor (`serverfd`) with IPv4 address family (`AF_INET`) and TCP protocol (`SOCK_STREAM`)
    - If the socket creation fails, it returns -1 and triggers an error function
   
-**1. Purpose:**   The `struct sockaddr_in` is a structure used in network programming, specifically for IPv4 Internet Protocol (IP) socket address representation. It's commonly used when working with socket programming in C/C++, especially for TCP/IP networking.
-The struct in_addr is used in socket programming to represent an IPv4 address.
+**1. Purpose:**   
+- The `struct sockaddr_in` is a structure used in network programming, specifically for IPv4 Internet Protocol (IP) socket address representation.
+- It's commonly used when working with socket programming in C/C++, especially for TCP/IP networking.
+- The struct in_addr is used in socket programming to represent an IPv4 address.
 
 **2. Structure Definition:**   The structure typically looks like this:
 
