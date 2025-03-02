@@ -1,6 +1,6 @@
 # MINI SERVER IN C -- the LAST CORE EXAM in 42 PRAGUE
-
-Here's the code with added comments explaining the purpose of each section: [Skip to function def.](#Must_know_by_heart)
+[Vocab](#must-know-by-heart)
+Here's the code with added comments explaining the purpose of each section: 
 
 ```c
 #include <stdio.h>
