@@ -1,4 +1,4 @@
-This is socket programming code in C that sets up a TCP server. Let me explain each part:
+This is socket programming code in C that sets up a TCP server. The sockaddr_in structure is named after "socket address, internet". Let me explain each part:
 
 1. **Socket Creation**:
    ```c
