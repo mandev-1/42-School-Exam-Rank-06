@@ -2,6 +2,15 @@
 
 [<--- back to readme](../README.md)
 
+```c
+// Global variables for managing clients and file descriptors
+t_client    clients[2048];
+fd_set      read_set, write_set, current;
+int         maxfd = 0, gid = 0;
+char        send_buffer[120000], recv_buffer[120000];
+```
+
+
 The `fd_set` is a data structure used in C for managing sets of file descriptors, primarily used with the `select()` function for I/O multiplexing. It's typically defined in the `<sys/select.h>` header, which is often included by `<sys/types.h>`. 
 
 *Here's what you need to know about `fd_set`:*
