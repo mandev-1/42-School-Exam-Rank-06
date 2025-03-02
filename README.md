@@ -138,8 +138,12 @@ int     main(int ac, char **av)
 
 > These comments provide a high-level overview of the purpose of each section in the code, making it easier to understand the structure and functionality of the server program.
 
-Learn about the code you use:
+**Learn about the code you use:**
 - [fd_set](documentation/fd_set.md)
+- 
+
+---------
+
 
 # Expected File
 
