@@ -145,8 +145,8 @@ int     main(int ac, char **av)
 
 **Learn about the code you use:**
 - [fd_set](documentation/fd_set.md)
-- [create sockets](documentation/.md)
-- [bind and listen to sockets](documentation/.md)
+- [create sockets](documentation/bind_listen_socket.md)
+- [bind and listen to sockets](documentation/socket_creation.md)
 
 ---------
 
