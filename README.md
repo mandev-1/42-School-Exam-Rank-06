@@ -1,5 +1,5 @@
 # MINI SERVER IN C -- the LAST CORE EXAM in 42 PRAGUE
-[Vocab](#must-know-by-heart)
+[📚Vocab](#must-know-by-heart)
 
 
 Here's the code with added comments explaining the purpose of each section: 
@@ -148,7 +148,7 @@ int     main(int ac, char **av)
 - [create sockets](documentation/bind_listen_socket.md)
 - [bind and listen to sockets](documentation/socket_creation.md)
 
-- [create server loop](documentation/implement_server.md)
+- [create server loop](documentation/implementing_server.md)
 
 ---------
 
