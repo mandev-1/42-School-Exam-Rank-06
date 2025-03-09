@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 
 	// lets setup the server socket
 	struct sockaddr_in	serveraddr;
-	socklen_t	len = sizeof(struct sockaddr_in);
-	
+	socklen_t len = sizeof(struct sockaddr_in)
+
 	
 }

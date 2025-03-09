@@ -24,16 +24,18 @@ The extra steps are:
 4. (the rest is the "standard server package", which is handled serverside and clientside)(listen, connect, close, send, etc.)
 
 ###### Need to know:
-- fd_set : data structure used to manage filedescriptors (sockets); you dont directly manipulate `fd_set`. Instead, you use macros to add, validate or remove fd. from the set. 
+- **fd_set** : data structure used to manage filedescriptors (sockets); you dont directly manipulate `fd_set`. Instead, you use __macros__ to add, validate or remove fd. from the set. 
 
 1. FD_ZERO(&set): Clears all file descriptors from the set.
 2. FD_SET(fd, &set): Adds a file descriptor to the set.
 3. FD_CLR(fd, &set): Removes a file descriptor from the set.
 4. FD_ISSET(fd, &set): Checks if a file descriptor is in the set.
 
-- struct sockaddr_in : this is imported and we will use it. It will store address family, port and IPv4 [... continue](documentation/socket_creation.md). You need to LEARN how to config. these three attributes!
+- **struct sockaddr_in** : this is imported and we will use it. It will store address family, port and IPv4 [... continue](documentation/socket_creation.md). You need to LEARN how to config. these three attributes! 
+> we will define attribute `len` to STORE sizeof sockaddr_in!! - __this will help us `accept()` new clients.__ It will be stored in SPECIAL type `socklen_t` !! The len MUST BE STORED in SOCKLEN_T
 
-- struct sockaddr : contains ONLY the family (`sa_family`) and address data. We use it to typecast serveraddress only! Allows correctly `accept()` and `bind()` the serveraddress - accept and bind dont work with sockaddr_in  
+
+- **struct sockaddr** : contains ONLY the family (`sa_family`) and address data. __We use it to typecast serveraddress only!__ Allows correctly `accept()` and `bind()` the serveraddress - accept and bind dont work with sockaddr_in 
 
 [... continue](#must-know-by-heart)
 
@@ -95,6 +97,8 @@ void    send_to_all(int except)
 > .. and then uses `send()` to send the full buffered string to the client connected on the specified socket
 > (this loops)  
 > 💡 The **except** helps us not send the message to ourselves  
+
+
 
 ### main function:
 ```c
