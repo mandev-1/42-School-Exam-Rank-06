@@ -21,7 +21,7 @@ The extra steps are:
 1. Special Creation (to fit IPv4 / IPv6 standard & TCP or UDP, etc. etc.)
 2. Binding socket to a specific IP Adress and port
 3. ...
-4. (the rest is the "standard server package", which is handled serverside and clientside)(listen, connect, send, etc.)
+4. (the rest is the "standard server package", which is handled serverside and clientside)(listen, connect, close, send, etc.)
 
 ###### Need to know:
 - fd_set : data structure used to manage filedescriptors (sockets); you dont directly manipulate `fd_set`. Instead, you use macros to add, validate or remove fd. from the set. 
