@@ -101,6 +101,7 @@ void    send_to_all(int except)
 > 💡 The **except** helps us not send the message to ourselves  
 
 
+**need to know:** AF_INET == IPv4 denotation; ´SOCK_STREAM´ == TCP denotation !!
 
 ### main function:
 ```c
@@ -147,6 +148,8 @@ int     main(int ac, char **av)
 
 
     // BIND (typecast serveraddr_in) & 
+    // LISTEN  (listen(serverfd, 100))
+    // ... and ERROR HANDLING for -1 fatal errors
     if (bind(serverfd, (const struct sockaddr *)&serveraddr, sizeof(serveraddr)) == -1 || listen(serverfd, 100) == -1)
         err(NULL);
 
