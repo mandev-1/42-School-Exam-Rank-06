@@ -10,7 +10,17 @@
 4. profit!
 
 
-- This exam is about sockets 
+TLDR: This exam is about FD_SET stuff (sockets), binding, listenning, accepting, receiving or sending (also all related to sockets).
+> **IF YOU DONT KNOW WHAT IS A SOCKET.... then dont worry, it is just a fancy way of giving clients a "parking place" (=> assigning them a socket). Think of it as a virtual File Descriptor:**
+
+
+Alternatively, think of it as an ID with extra steps. 
+
+The extra steps are:
+1. Special Creation (to fit IPv4 / IPv6 standard & TCP or UDP, etc. etc.)
+2. Binding socket to a specific IP Adress and port
+3. ...
+4. (the rest is the "standard server package", which is handled serverside and clientside)(listen, connect, send, etc.)
 
 ###### Need to know:
 - fd_set : data structure used to manage filedescriptors (sockets); you dont directly manipulate `fd_set`. Instead, you use macros to add, validate or remove fd. from the set. 
