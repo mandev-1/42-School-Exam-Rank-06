@@ -133,9 +133,22 @@ int     main(int ac, char **av)
     // --> STEP 4: Configure SERVER ADDRESS from step 2
 
 
+
+
+
+
+
     // BIND (typecast serveraddr_in) & 
     if (bind(serverfd, (const struct sockaddr *)&serveraddr, sizeof(serveraddr)) == -1 || listen(serverfd, 100) == -1)
         err(NULL);
+
+
+
+
+
+
+
+
 
 
     // STEP 6: IMPLEMENT the Main server loop 
