@@ -115,6 +115,7 @@ int     main(int ac, char **av)
 
 
     // STEP 2: Set up server socket storage, the special use SOCKADDR_IN struct.
+    // Create a socket file descriptor (serverfd) with IPv4 address family (AF_INET) and TCP protocol (SOCK_STREAM)
     struct sockaddr_in  serveraddr;
     socklen_t           len = sizeof(struct sockaddr_in);
     int                 serverfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -126,7 +127,7 @@ int     main(int ac, char **av)
 
 
 
-    // FD_SET STUFF!!! Initialize file descriptor sets and client array (STEP 3)
+    // FD_SET STUFF!!! File Descriptor Sets Initialization:
     FD_ZERO(&current);
     FD_SET(serverfd, &current);
     bzero(clients, sizeof(clients));
@@ -135,7 +136,7 @@ int     main(int ac, char **av)
     serveraddr.sin_family = AF_INET;
     serveraddr.sin_addr.s_addr = htonl(INADDR_ANY);
     serveraddr.sin_port = htons(atoi(av[1]));
-    // --> STEP 4: Configure SERVER ADDRESS from step 2
+    // --> STEP 4: Server Address Configuration ☝️
 
 
 

@@ -47,9 +47,8 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		err("Wrong number of arguments");
 
-	// lets setup the server socket
 	struct sockaddr_in	serveraddr;
-	socklen_t len = sizeof(struct sockaddr_in)
+	socklen_t				len = sizeof(struct sockaddr_in);
 
 	
 }
