@@ -54,6 +54,7 @@ typedef struct s_client
 }   t_client;
 
 // Global variables for managing clients and file descriptors
+// We're gonna be buffering the messages - improves efficiency, prevents blocking
 t_client    clients[2048];
 fd_set      read_set, write_set, current;
 int         maxfd = 0, gid = 0;
