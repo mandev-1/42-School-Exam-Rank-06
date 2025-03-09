@@ -110,6 +110,10 @@ int     main(int ac, char **av)
     if (ac != 2)
         err("Wrong number of arguments");
 
+
+
+
+
     // STEP 2: Set up server socket storage, the special use SOCKADDR_IN struct.
     struct sockaddr_in  serveraddr;
     socklen_t           len = sizeof(struct sockaddr_in);
@@ -146,12 +150,7 @@ int     main(int ac, char **av)
 
 
 
-
-
-
-
-
-    // STEP 6: IMPLEMENT the Main server loop 
+    // STEP 6: IMPLEMENT the Main server loop YAY LETSGO! 
     while (1)
     {
         // Set up file descriptor sets for select()
