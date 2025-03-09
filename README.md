@@ -143,7 +143,7 @@ int     main(int ac, char **av)
 
     ...
 ```
-> `htonl(uint32_t hostlong)`: Converts the unsigned integer hostlong from host byte order to network byte order.  
+> `htonl(uint32_t hostlong)`: Converts the unsigned integer hostlong from **host** byte order to **network** byte order.  
 > `htons(uint16_t hostshort)`: Converts the unsigned short integer hostshort from host byte order to network byte order.
 
 ```c
