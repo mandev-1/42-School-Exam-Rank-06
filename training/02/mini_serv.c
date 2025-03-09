@@ -48,7 +48,6 @@ int	main(int argc, char **argv)
 		err ("Wrong number of arguments");
 
 
-
 	// we declare server and socket related variables
 	// server address structure
 	// helper len - which contains the sizeof the afformentioned structure
@@ -56,9 +55,21 @@ int	main(int argc, char **argv)
 	// --> for the last one, we need to decklare it for TCP and IPv4, which means socket(AF_INET, SOCK_STREAM, 0); 
 	//
 	// WE CAN TAKE THE SOCKET command from MAIN.c
-	struct sockaddr_in	serveraddress;
-	socklen_t	len = sizeof(struct sockaddr_in);
-	int	serverfd = socket(AF_INET, SOCK_STREAM, 0);
+	struct sockaddr_in	serveraddr;
+	socklen_t len = sizeof(struct sockaddr_in);
+	int serverfd = socket(AF_INET, SOCK_STREAM, 0); 
 
-	
+	if (serverfd == -1) err(NULL);
+	maxfd = serverfd;
+
+	FD_ZERO(&current);
+	FD_SET(serverfd, &current);
+	bzero(&serveraddr, sizeof(serveraddr));
+	bzero(clients, sizeof(clients));
+
+	serveraddr.sin_family = AF_INET;
+	serveraddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	serveraddr.sin_port = htons(atoi(argv[1]));
+
+
 }

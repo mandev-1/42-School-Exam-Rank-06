@@ -140,7 +140,11 @@ int     main(int ac, char **av)
     serveraddr.sin_addr.s_addr = htonl(INADDR_ANY);
     serveraddr.sin_port = htons(atoi(av[1]));
     // --> STEP 4: Server Address Configuration ☝️
+```
+> `htonl(uint32_t hostlong)`: Converts the unsigned integer hostlong from host byte order to network byte order.  
+> `htons(uint16_t hostshort)`: Converts the unsigned short integer hostshort from host byte order to network byte order.
 
+```c
 
 
 
