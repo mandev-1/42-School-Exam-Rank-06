@@ -31,6 +31,10 @@ The extra steps are:
 3. FD_CLR(fd, &set): Removes a file descriptor from the set.
 4. FD_ISSET(fd, &set): Checks if a file descriptor is in the set.
 
+- struct sockaddr_in : this is imported and we will use it. It will store address family, port and IPv4 [... continue](documentation/socket_creation.md). You need to LEARN how to config. these three attributes!
+
+- struct sockaddr : contains ONLY the family (`sa_family`) and address data. We use it to typecast serveraddress only! Allows correctly `accept()` and `bind()` the serveraddress - accept and bind dont work with sockaddr_in  
+
 [... continue](#must-know-by-heart)
 
 > 💡 check out the code now to feel less lost
