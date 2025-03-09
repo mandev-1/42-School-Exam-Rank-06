@@ -78,7 +78,9 @@ void    send_to_all(int except)
                 err(NULL);
     }
 }
-
+```
+### main function:
+```c
 int     main(int ac, char **av)
 {
     // Check for correct number of arguments
@@ -107,7 +109,7 @@ int     main(int ac, char **av)
     if (bind(serverfd, (const struct sockaddr *)&serveraddr, sizeof(serveraddr)) == -1 || listen(serverfd, 100) == -1)
         err(NULL);
 
-    // Main server loop
+    // Main server loop 
     while (1)
     {
         // Set up file descriptor sets for select()
