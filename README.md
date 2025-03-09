@@ -79,6 +79,15 @@ void    send_to_all(int except)
     }
 }
 ```
+###### notes:
+> The above portion is setting up our structure, the client, socket variables, and int and char helpers
+> !Note the variables are global :)!
+
+> The `send_to_all` function is checking if the fd IS in the set (prevents failure)
+> .. and then uses `send()` to send the full buffered string to the client connected on the specified socket
+> (this loops)
+> 💡 The **except** helps us not send the message to ourselves
+
 ### main function:
 ```c
 int     main(int ac, char **av)
