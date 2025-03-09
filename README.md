@@ -9,6 +9,9 @@
 - ???
 - profit!
 
+
+- This exam is about sockets 
+
 ###### Need to know:
 - fd_set : data structure used to manage filedescriptors (sockets); you dont directly manipulate `fd_set`. Instead, you use macros to add, validate or remove fd. from the set. 
 
