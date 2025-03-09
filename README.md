@@ -158,6 +158,7 @@ int     main(int ac, char **av)
 
 
     // STEP 6: IMPLEMENT the Main server loop YAY LETSGO! 
+    // bind  -->  listen  -->  select  -->  accept  -->  recv  -->  close  -->  (or process) 
     while (1)
     {
         // Set up file descriptor sets for select()
