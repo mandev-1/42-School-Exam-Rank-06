@@ -10,7 +10,7 @@
 4. profit!
 
 
-TLDR: This exam is about FD_SET stuff (sockets), binding, listenning, accepting, receiving or sending (also all related to sockets). ...*so it is also about **sockaddr_in structure** ....and sockaddr structure, which store server address stuff ... and to reiterate... about implementing BIND or LISTEN...   SELECT, ACCEPT -or- CLOSE....  AND RECV (receive) ...*
+TLDR: This exam is about FD_SET stuff (sockets), binding, listenning, accepting, receiving or sending (also all related to sockets). ...*so it is also about **sockaddr_in structure** ....and sockaddr structure, which store server address stuff and helps us send and accept.*
 
 > **IF YOU DONT KNOW WHAT IS A SOCKET....** then dont worry, it is just a fancy way of giving clients their own **"parking place"** (=> assigning them a socket).
 > Think of it as a File Descriptor.... which you know from `write()` C function:
