@@ -119,7 +119,7 @@ int     main(int ac, char **av)
     // Create a socket file descriptor (serverfd) with IPv4 address family (AF_INET) and TCP protocol (SOCK_STREAM)
     struct sockaddr_in  serveraddr;
     socklen_t           len = sizeof(struct sockaddr_in);
-    int                 serverfd = socket(AF_INET, SOCK_STREAM, 0);
+    int                 serverfd = socket(AF_INET, SOCK_STREAM, 0); // this is available in main.c btw
 
     if (serverfd == -1) err(NULL);
     maxfd = serverfd;

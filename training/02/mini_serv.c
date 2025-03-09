@@ -45,13 +45,20 @@ int	main(int argc, char **argv)
 {
 	// sanitize input - only 2 params allowed - error text in subject
 	if (argc != 2)
-		err("Wrong number of arguments");
+		err ("Wrong number of arguments");
 
-	int					serverfd = socket(AF_INET, SOCK_STREAM, 0);
-	struct sockaddr_in	serveraddr;
-	socklen_t			len = sizeof(struct sockaddr_in);
 
-	
+
+	// we declare server and socket related variables
+	// server address structure
+	// helper len - which contains the sizeof the afformentioned structure
+	// server file descriptor, which is decklared using the socket() function
+	// --> for the last one, we need to decklare it for TCP and IPv4, which means socket(AF_INET, SOCK_STREAM, 0); 
+	//
+	// WE CAN TAKE THE SOCKET command from MAIN.c
+	struct sockaddr_in	serveraddress;
+	socklen_t	len = sizeof(struct sockaddr_in);
+	int	serverfd = socket(AF_INET, SOCK_STREAM, 0);
 
 	
 }
