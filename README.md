@@ -38,12 +38,13 @@ The extra steps are:
 # IMPLEMENTATION
 
 ```c
+#include <string.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <sys/select.h>
 
 // Define a structure to store client information
 typedef struct s_client
