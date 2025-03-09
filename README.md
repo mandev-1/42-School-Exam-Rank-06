@@ -128,6 +128,8 @@ int     main(int ac, char **av)
 
 
     // FD_SET STUFF!!! File Descriptor Sets Initialization:
+    // clients
+    // current fd_set, serverfd and serveraddress
     FD_ZERO(&current);
     FD_SET(serverfd, &current);
     bzero(clients, sizeof(clients));
