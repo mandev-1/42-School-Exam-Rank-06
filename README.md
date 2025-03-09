@@ -16,7 +16,8 @@
 - fd_set : data structure used to manage filedescriptors (sockets); you dont directly manipulate `fd_set`. Instead, you use macros to add, validate or remove fd. from the set. 
 
 
-Here's the code with added comments explaining the purpose of each section: 
+
+# IMPLEMENTATION
 
 ```c
 #include <stdio.h>
