@@ -1,6 +1,10 @@
 # MINI SERVER IN C -- the LAST CORE EXAM in 42 PRAGUE
-[📚Vocab](#must-know-by-heart)
+[📚Dictionary for ya](#must-know-by-heart)
 
+[subject.en.txt](subjects/subject.en.txt)
+
+Goal:
+- implement a server 
 
 Here's the code with added comments explaining the purpose of each section: 
 
