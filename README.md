@@ -125,7 +125,8 @@ int     main(int ac, char **av)
 
 
 
-    // FD_SET STUFF!!! Initialize file descriptor sets and client array
+
+    // FD_SET STUFF!!! Initialize file descriptor sets and client array (STEP 3)
     FD_ZERO(&current);
     FD_SET(serverfd, &current);
     bzero(clients, sizeof(clients));
