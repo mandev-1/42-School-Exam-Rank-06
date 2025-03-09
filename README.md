@@ -10,7 +10,7 @@
 4. profit!
 
 
-TLDR: This exam is about FD_SET stuff (sockets), binding, listenning, accepting, receiving or sending (also all related to sockets). ...*so it is also about **sockaddr_in structure** ....and sockaddr structure, which store server address stuff and help send and accept.*
+TLDR: This exam is about FD_SET stuff (sockets), binding, listenning, accepting, receiving or sending (also all related to sockets). ...*so it is also about **sockaddr_in structure** ....and sockaddr structure, which store server address stuff and helps us send and accept.*
 
 > **IF YOU DONT KNOW WHAT IS A SOCKET....** then dont worry, it is just a fancy way of giving clients their own **"parking place"** (=> assigning them a socket).
 > Think of it as a File Descriptor.... which you know from `write()` C function:
@@ -24,7 +24,7 @@ The extra steps are:
 3. ...
 4. (the rest is the "standard server package", which is handled serverside and clientside)(listen, connect, close, send, etc.)
 
-###### Need to know:
+###### Need to 🧠 know:
 - **fd_set** : data structure used to manage filedescriptors (sockets); you dont directly manipulate `fd_set`. Instead, you use __macros__ to add, validate or remove fd. from the set. 
 
 1. FD_ZERO(&set): Clears all file descriptors from the set.
@@ -110,29 +110,35 @@ int     main(int ac, char **av)
     if (ac != 2)
         err("Wrong number of arguments");
 
-    // Set up server socket
+    // STEP 2: Set up server socket storage, the special use SOCKADDR_IN struct.
     struct sockaddr_in  serveraddr;
-    socklen_t len = sizeof(struct sockaddr_in);
-    int serverfd = socket(AF_INET, SOCK_STREAM, 0);
+    socklen_t           len = sizeof(struct sockaddr_in);
+    int                 serverfd = socket(AF_INET, SOCK_STREAM, 0);
+
     if (serverfd == -1) err(NULL);
     maxfd = serverfd;
 
-    // Initialize file descriptor sets and client array
+
+
+
+    // FD_SET STUFF!!! Initialize file descriptor sets and client array
     FD_ZERO(&current);
     FD_SET(serverfd, &current);
     bzero(clients, sizeof(clients));
     bzero(&serveraddr, sizeof(serveraddr));
 
-    // Configure server address
     serveraddr.sin_family = AF_INET;
     serveraddr.sin_addr.s_addr = htonl(INADDR_ANY);
     serveraddr.sin_port = htons(atoi(av[1]));
+    // --> STEP 4: Configure SERVER ADDRESS from step 2
 
-    // Bind and listen on the server socket
+
+    // BIND (typecast serveraddr_in) & 
     if (bind(serverfd, (const struct sockaddr *)&serveraddr, sizeof(serveraddr)) == -1 || listen(serverfd, 100) == -1)
         err(NULL);
 
-    // Main server loop 
+
+    // STEP 6: IMPLEMENT the Main server loop 
     while (1)
     {
         // Set up file descriptor sets for select()
