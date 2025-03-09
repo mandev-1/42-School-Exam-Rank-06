@@ -143,7 +143,7 @@ int     main(int ac, char **av)
 
     ...
 ```
-> `htonl(uint32_t hostlong)`: Converts the unsigned integer from **host** byte order to **network** byte order...   ❗*s_addr is 32-bit and repr. IPv4 Address*❗
+> `htonl(uint32_t hostlong)`: Converts the unsigned integer from **host** byte order to **network** byte order...   ❗*s_addr is 32-bit and repr. IPv4 Address*❗  
 > `htons(uint16_t hostshort)`: Converts the unsigned SHORT integer hostshort from host byte order to network byte order.. ❗*sin_port is 16-bit and represents the port number*❗
 
 ```c
