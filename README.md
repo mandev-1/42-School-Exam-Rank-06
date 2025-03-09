@@ -32,7 +32,8 @@ The extra steps are:
 4. FD_ISSET(fd, &set): Checks if a file descriptor is in the set.
 
 - **struct sockaddr_in** : this is imported and we will use it. It will store address family, port and IPv4 [... continue](documentation/socket_creation.md). You need to LEARN how to config. these three attributes! 
-> we will define attribute `len` to STORE sizeof sockaddr_in!! - __this will help us `accept()` new clients.__ It will be stored in SPECIAL type `socklen_t` !! The len MUST BE STORED in SOCKLEN_T
+> we will define attribute `len` to STORE sizeof sockaddr_in!! (helps `accept()`)  
+> It will be stored in SPECIAL type `socklen_t` !! The len MUST BE STORED in SOCKLEN_T
 
 
 - **struct sockaddr** : contains ONLY the family (`sa_family`) and address data. __We use it to typecast serveraddress only!__ Allows correctly `accept()` and `bind()` the serveraddress - accept and bind dont work with sockaddr_in 
