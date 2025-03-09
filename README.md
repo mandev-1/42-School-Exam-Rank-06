@@ -1,7 +1,7 @@
 # MINI SERVER IN C -- the LAST CORE EXAM in 42 PRAGUE
 [📚Dictionary for ya](#must-know-by-heart)
 
-[subject.en.txt](subjects/subject.en.txt)
+[subject.en.txt](subjects/subject.en.txt), [main](#main-function)
 
 ###### Goal:
 1. implement a server
