@@ -4,10 +4,10 @@
 [subject.en.txt](subjects/subject.en.txt)
 
 ###### Goal:
-- implement a server 
-- use nc (netcat) (open two instances of nc) to test communication between clients connected to it
-- ???
-- profit!
+1. implement a server
+2. use nc (netcat) (open two instances of nc) to test communication between clients connected to it
+3. ???
+4. profit!
 
 
 - This exam is about sockets 
