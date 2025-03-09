@@ -25,7 +25,14 @@ The extra steps are:
 ###### Need to know:
 - fd_set : data structure used to manage filedescriptors (sockets); you dont directly manipulate `fd_set`. Instead, you use macros to add, validate or remove fd. from the set. 
 
+1. FD_ZERO(&set): Clears all file descriptors from the set.
+2. FD_SET(fd, &set): Adds a file descriptor to the set.
+3. FD_CLR(fd, &set): Removes a file descriptor from the set.
+4. FD_ISSET(fd, &set): Checks if a file descriptor is in the set.
 
+[... continue](#must-know-by-heart)
+
+> 💡 check out the code now to feel less lost
 
 # IMPLEMENTATION
 
