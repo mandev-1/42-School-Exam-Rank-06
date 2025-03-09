@@ -11,7 +11,7 @@
 
 
 TLDR: This exam is about FD_SET stuff (sockets), binding, listenning, accepting, receiving or sending (also all related to sockets).
-> **IF YOU DONT KNOW WHAT IS A SOCKET.... then dont worry, it is just a fancy way of giving clients fancy virtual "parking place" (=> assigning them a socket). Think of it as a File Descriptor for server-client stuff:**
+> **IF YOU DONT KNOW WHAT IS A SOCKET.... then dont worry, it is just a fancy way of giving clients fancy virtual "parking place" (=> assigning them a socket). Think of it as a File Descriptor, which you know from `write()` C function:**
 
 
 Alternatively, think of it as an ID with extra steps. 
