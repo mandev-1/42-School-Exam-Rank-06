@@ -3,8 +3,13 @@
 
 [subject.en.txt](subjects/subject.en.txt)
 
-Goal:
+###### Goal:
 - implement a server 
+- use nc (netcat) (open two instances of nc) to test communication between clients connected to it
+
+###### Need to know:
+- fd_set : data structure used to manage filedescriptors (sockets); you dont directly manipulate `fd_set`. Instead, you use macros to add, validate or remove fd. from the set. 
+
 
 Here's the code with added comments explaining the purpose of each section: 
 
