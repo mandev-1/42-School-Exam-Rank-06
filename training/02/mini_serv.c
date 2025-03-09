@@ -71,5 +71,9 @@ int	main(int argc, char **argv)
 	serveraddr.sin_addr.s_addr = htonl(INADDR_ANY);
 	serveraddr.sin_port = htons(atoi(argv[1]));
 
+	//lastly, we will bind and listen.
+	if (bind(serverfd, (const struct sockaddr *) &serveraddr, sizeof(serveraddr)) == -1 || listen(serverfd, 100) == -1) err(NULL);
+
+	if (bind(serverfd, (const struct sockaddr *) &serveraddr, sizeof(serveraddr)) == -1 || listen(serverfd, 100) == -1 )err(NULL);
 
 }

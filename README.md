@@ -146,13 +146,11 @@ int     main(int ac, char **av)
 > `htonl(uint32_t hostlong)`: Converts the unsigned integer from **host** byte order to **network** byte order...   ❗*s_addr is 32-bit and repr. **IPv4 Address***  
 > `htons(uint16_t hostshort)`: Converts the unsigned **SHORT** integer hostshort from host byte order to network byte order.. ❗*sin_port is 16-bit and represents the **port number***❗  
   
-  
+
 > **`INADDR_ANY`** is a macro that expands to the IP address `0.0.0.0.`
 
 ```c
 ...
-
-
 
 
     // BIND (typecast serveraddr_in) & 
@@ -160,8 +158,7 @@ int     main(int ac, char **av)
     // ... and ERROR HANDLING for -1 fatal errors
     if (bind(serverfd, (const struct sockaddr *)&serveraddr, sizeof(serveraddr)) == -1 || listen(serverfd, 100) == -1)
         err(NULL);
-
-
+    // you are assigning the address information stored in the `serveraddr` structure to the server socket identified by `serverfd`. 
 
 
 
