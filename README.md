@@ -1,43 +1,42 @@
-# MINI SERVER IN C -- the LAST CORE EXAM in 42 PRAGUE
-[📚Dictionary for ya](#must-know-by-heart)
+# MINI SERVER IN C -- THE LAST CORE EXAM IN 42 PRAGUE
+[📚 Dictionary for Success](#must-know-by-heart)
 
 [subject.en.txt](subjects/subject.en.txt), [main](#main-function)
 
-###### Goal:
-1. implement a server
-2. use nc (netcat) (open two instances of nc) to test communication between clients connected to it
+## Goal:
+1. Implement a server
+2. Use nc (netcat) to test communication between clients connected to it
 3. ???
-4. profit!
+4. Profit!
 
+**TLDR:** This exam tests your knowledge of FD_SET (sockets) and **sockaddr_in structure** - binding, listening, accepting, receiving and sending data. It's about establishing TCP connections using IPv4.
 
-TLDR: This exam is about FD_SET stuff (sockets), binding, listenning, accepting, receiving or sending (also all related to sockets). ...*so it is also about **sockaddr_in structure** ....and sockaddr structure, which store server address stuff and helps us send and accept.*
+> **NEW TO SOCKETS?** Don't worry, a socket is simply a way to give clients their own "parking place" in your server. 
+> Think of it as a File Descriptor (like the ones you use with `write()` in C).
 
-> **IF YOU DONT KNOW WHAT IS A SOCKET....** then dont worry, it is just a fancy way of giving clients their own **"parking place"** (=> assigning them a socket).
-> Think of it as a File Descriptor.... which you know from `write()` C function:
-
-
-Alternatively, think of it as an ID with extra steps. 
-
-The extra steps are:
-1. Special Creation (to fit IPv4 / IPv6 standard & TCP or UDP, etc. etc.)
-2. Binding socket to a specific IP Adress and port
+Alternatively, sockets are like IDs with these extra steps:
+1. Special Creation - Different sockets have different standards (address family: TCP/UDP and IP type: IPv4/IPv6)
+2. Binding socket to a specific IP Address and port
 3. ...
-4. (the rest is the "standard server package", which is handled serverside and clientside)(listen, connect, close, send, etc.)
+4. (The rest is the "standard server package" handled server-side and client-side: listen, connect, close, send, etc.)
 
-###### Need to 🧠 know:
-- **fd_set** : data structure used to manage filedescriptors (sockets); you dont directly manipulate `fd_set`. Instead, you use __macros__ to add, validate or remove fd. from the set. 
+TCP uses stream-like connections - thus the constant is SOCK_STREAM  
+Address Family is AF_INET for IPv4 (AF_INET6 for IPv6)
 
-1. FD_ZERO(&set): Clears all file descriptors from the set.
-2. FD_SET(fd, &set): Adds a file descriptor to the set.
-3. FD_CLR(fd, &set): Removes a file descriptor from the set.
-4. FD_ISSET(fd, &set): Checks if a file descriptor is in the set.
+## Need to 🧠 know:
 
-- **struct sockaddr_in** : this is imported and we will use it. It will store address family, port and IPv4 [... continue](documentation/socket_creation.md). You need to LEARN how to config. these three attributes! 
-> we will define attribute `len` to STORE sizeof sockaddr_in!! (helps `accept()`)  
-> It will be stored in SPECIAL type `socklen_t` !! The len MUST BE STORED in SOCKLEN_T
+- **fd_set**: Data structure for managing file descriptors (sockets). You don't directly manipulate `fd_set` - instead use these **macros**:
 
+1. `FD_ZERO(&set)`: Clears all file descriptors from the set
+2. `FD_SET(fd, &set)`: Adds a file descriptor to the set
+3. `FD_CLR(fd, &set)`: Removes a file descriptor from the set
+4. `FD_ISSET(fd, &set)`: Checks if a file descriptor is in the set
 
-- **struct sockaddr** : contains ONLY the family (`sa_family`) and address data. __We use it to typecast serveraddress only!__ Allows correctly `accept()` and `bind()` the serveraddress - accept and bind dont work with sockaddr_in 
+- **struct sockaddr_in**: Imported structure that stores address family, port, and IPv4 address [... continue](documentation/socket_creation.md). You must learn how to configure these three attributes!
+> We'll define attribute `len` to STORE sizeof sockaddr_in!! (helps with `accept()`)  
+> It must be stored in the SPECIAL type `socklen_t`!! The len MUST BE STORED in SOCKLEN_T
+
+- **struct sockaddr**: Contains ONLY the family (`sa_family`) and address data. __We use it to typecast serveraddress only!__ Allows correctly `accept()` and `bind()` the serveraddress - accept and bind don't work with sockaddr_in
 
 [... continue](#must-know-by-heart)
 
@@ -303,5 +302,3 @@ Memory or fd leaks are forbidden
 
 # Exam Practice Tool
 Practice the exam just like you would in the real exam using this tool - https://github.com/JCluzet/42_EXAM
-    }
-}
