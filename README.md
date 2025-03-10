@@ -102,6 +102,81 @@ void    send_to_all(int except)
 
 **need to know:** AF_INET == IPv4 denotation; ´SOCK_STREAM´ == TCP denotation !!
 
+# MUST KNOW BY HEART - MINI SERVER IN C
+
+Here's what else you need to know to implement the Mini Server successfully:
+
+## Key Functions
+
+### Socket Creation and Setup:
+- `socket(domain, type, protocol)`: Creates a new socket
+  - domain: AF_INET for IPv4
+  - type: SOCK_STREAM for TCP
+  - protocol: Usually 0 for default
+  - Returns: socket file descriptor or -1 on error
+
+### Network Setup:
+- `htons(port)`: Host-to-Network Short - converts port number to network byte order
+- `htonl(addr)`: Host-to-Network Long - converts IP address to network byte order
+- `INADDR_ANY`: Special constant that allows the server to accept connections on any interface
+
+### Connection Functions:
+- `bind(sockfd, addr, addrlen)`: Binds a socket to an address and port
+- `listen(sockfd, backlog)`: Marks socket as passive, waiting for connections
+  - backlog: Maximum length of pending connections queue
+- `accept(sockfd, addr, addrlen)`: Accepts a connection, creates a new socket
+  - Returns a new file descriptor for the accepted connection
+
+### Data Transfer:
+- `send(sockfd, buf, len, flags)`: Sends data through socket
+- `recv(sockfd, buf, len, flags)`: Receives data from socket
+  - Returns number of bytes received or 0 on connection closed or -1 on error
+
+### Select Function:
+- `select(nfds, readfds, writefds, exceptfds, timeout)`: Monitors multiple file descriptors
+  - nfds: Highest-numbered fd plus 1
+  - readfds: Set of descriptors to check for reading
+  - writefds: Set of descriptors to check for writing
+  - exceptfds: Set of descriptors to check for exceptions
+  - timeout: Maximum time to wait (NULL for blocking)
+  - Returns: Number of ready descriptors or -1 on error
+
+## Implementation Strategy:
+
+1. **Initialize socket**: Create server socket with `socket()`
+2. **Set up server address**: Configure sockaddr_in structure with family, address, port
+3. **Bind and listen**: Bind socket to address and start listening
+4. **Set up fd_set**: Initialize file descriptor sets
+5. **Main loop**:
+   - Use `select()` to monitor sockets
+   - Accept new connections
+   - Handle data from existing connections
+   - Broadcast messages to all clients
+   - Manage client disconnections
+
+## Common Gotchas:
+
+- Always check return values of socket functions
+- Remember to handle client disconnection properly
+- Use proper byte ordering functions (htons, htonl)
+- Make sure to initialize all data structures (bzero or memset)
+- Correctly manage your file descriptor sets
+- Keep track of the highest fd for select()
+- Buffer overflow protection when receiving data
+- Properly format messages before broadcasting
+
+The provided code is a complete implementation that handles:
+- New client connections
+- Client messages (including buffering partial messages until newline)
+- Client disconnections
+- Broadcasting messages to all connected clients
+
+To test your server:
+1. Compile with `gcc -o server mini_server.c`
+2. Run with a port number: `./server 4242`
+3. Connect with netcat: `nc localhost 4242`
+4. Open another terminal and connect again to test multi-client functionality
+
 ### main function:
 ```c
 int     main(int ac, char **av)
