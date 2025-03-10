@@ -241,8 +241,11 @@ int     main(int ac, char **av)
     while (1)
     {
         // Set up file descriptor sets for select()
+        // we write the master set ' current' as in current fds, into the temporary read and write sets... 
         read_set = write_set = current;
+        // run select to filter for active (or writeable) fds only.. and thus efficiently wait until any socket has any activity (either n.conn. or socket has data to read)
         if (select(maxfd + 1, &read_set, &write_set, 0, 0) == -1) continue;
+        // it will filter read_set to only have those fds with data to read, closed connections or new connections to accept and the write_set for those fds that be written to without blocking (aka it unoccupied)
 
         // Check all file descriptors for activity
         for (int fd = 0; fd <= maxfd; fd++)
