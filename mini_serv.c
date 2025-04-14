@@ -71,7 +71,6 @@ int     main(int ac, char **av)
                 if (fd == serverfd)
                 {
                     int clientfd = accept(serverfd, (struct sockaddr *)&serveraddr, &len);
-                    
                     if (clientfd == -1) continue;
                     if (clientfd > maxfd) maxfd = clientfd;
                     clients[clientfd].id = gid++;
@@ -82,7 +81,7 @@ int     main(int ac, char **av)
                 }
                 else
                 {
-                    int ret = recv(fd, recv_buffer, sizeof(recv_buffer), 0);
+                    int ret = recv(fd, recv_buffer, sizeof(recv_buffer), 0); //SIZEOF
                     if (ret <= 0)
                     {
                         sprintf(send_buffer, "server: client %d just left\n", clients[fd].id);
