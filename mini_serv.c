@@ -58,12 +58,11 @@ int     main(int ac, char **av)
 
     if (bind(serverfd, (const struct sockaddr *)&serveraddr, sizeof(serveraddr)) == -1 || listen(serverfd, 100) == -1)
         err(NULL);
-
+    
     while (1)
     {
         read_set = write_set = current;
         if (select(maxfd + 1, &read_set, &write_set, 0, 0) == -1) continue;
-
         for (int fd = 0; fd <= maxfd; fd++)
         {
             if (FD_ISSET(fd, &read_set))
