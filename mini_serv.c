@@ -58,12 +58,11 @@ int     main(int ac, char **av)
 
     if (bind(serverfd, (const struct sockaddr *)&serveraddr, sizeof(serveraddr)) == -1 || listen(serverfd, 100) == -1)
         err(NULL);
-
+    
     while (1)
     {
         read_set = write_set = current;
         if (select(maxfd + 1, &read_set, &write_set, 0, 0) == -1) continue;
-
         for (int fd = 0; fd <= maxfd; fd++)
         {
             if (FD_ISSET(fd, &read_set))
@@ -71,7 +70,6 @@ int     main(int ac, char **av)
                 if (fd == serverfd)
                 {
                     int clientfd = accept(serverfd, (struct sockaddr *)&serveraddr, &len);
-                    
                     if (clientfd == -1) continue;
                     if (clientfd > maxfd) maxfd = clientfd;
                     clients[clientfd].id = gid++;
@@ -82,7 +80,7 @@ int     main(int ac, char **av)
                 }
                 else
                 {
-                    int ret = recv(fd, recv_buffer, sizeof(recv_buffer), 0);
+                    int ret = recv(fd, recv_buffer, sizeof(recv_buffer), 0); //SIZEOF
                     if (ret <= 0)
                     {
                         sprintf(send_buffer, "server: client %d just left\n", clients[fd].id);
